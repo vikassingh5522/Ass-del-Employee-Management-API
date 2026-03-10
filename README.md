@@ -375,4 +375,4 @@ The project includes **40 integration tests** covering all endpoints:
 
 ---
 
-> Built with Spring Boot | Deloitte Graduate Hiring Assessment 2026
+> Built with Spring Boot nad vikas singh | Deloitte Graduate Hiring Assessment 2026
