@@ -359,3 +359,20 @@ The project includes **40 integration tests** covering all endpoints:
 | 4  | Sneha Reddy   | Sales      | Senior      | 72,000  |
 | 5  | Vikram Singh  | IT         | Manager     | 110,000 |
 | 6  | Neha Gupta    | HR         | Junior      | 42,000  |
+
+---
+
+## Developed By
+
+**Vikas Singh** — All Rights Reserved
+
+| Field        | Details                        |
+|--------------|--------------------------------|
+| Name         | Vikas Singh                   |
+| Email        | vikas.kumar.singh.job123@gmail.com |
+| College      | D. Y. Patil College of Engineering and Innovation, Varale, Talegaon, Pune |
+| GitHub       | [vikassingh5522](https://github.com/vikassingh5522) |
+
+---
+
+> Built with Spring Boot | Deloitte Graduate Hiring Assessment 2026
