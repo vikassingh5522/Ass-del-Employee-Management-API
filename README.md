@@ -15,6 +15,122 @@ A production-ready RESTful API built with Spring Boot for managing employee reco
 
 ---
 
+## Live Demo
+
+**Base URL:** `https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev`
+
+---
+
+## Quick Test APIs
+
+> Click the **GET** links directly in your browser, or use the **curl** commands for POST/PUT/PATCH/DELETE.
+
+### 1. Get All Employees (Paginated)
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees?page=0&size=10&sortBy=id&sortDir=asc
+```
+
+### 2. Get Employee by ID
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/1
+```
+
+### 3. Get Employees by Department
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/department/IT
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/department/HR
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/department/Finance
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/department/Sales
+```
+
+### 4. Get Active Employees
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/active
+```
+
+### 5. Search Employees by Name
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/search?name=Rahul
+```
+
+### 6. Get Employee Count
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/count
+```
+
+### 7. Get Salary Statistics by Department
+```
+GET https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/salary-stats
+```
+
+### 8. Create New Employee (POST)
+```bash
+curl -X POST https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Test User",
+    "email": "test.user@deloitte.com",
+    "department": "IT",
+    "designation": "Junior",
+    "salary": 60000,
+    "joiningDate": "2026-03-10",
+    "isActive": true
+  }'
+```
+
+### 9. Bulk Create Employees (POST)
+```bash
+curl -X POST https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/bulk \
+  -H "Content-Type: application/json" \
+  -d '[
+    {
+      "name": "User One",
+      "email": "user.one@deloitte.com",
+      "department": "HR",
+      "designation": "Manager",
+      "salary": 70000,
+      "joiningDate": "2026-01-01",
+      "isActive": true
+    },
+    {
+      "name": "User Two",
+      "email": "user.two@deloitte.com",
+      "department": "Finance",
+      "designation": "Senior",
+      "salary": 55000,
+      "joiningDate": "2026-02-15",
+      "isActive": true
+    }
+  ]'
+```
+
+### 10. Update Employee (PUT)
+```bash
+curl -X PUT https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Rahul Sharma Updated",
+    "email": "rahul.sharma@deloitte.com",
+    "department": "IT",
+    "designation": "Manager",
+    "salary": 95000,
+    "joiningDate": "2023-01-15",
+    "isActive": true
+  }'
+```
+
+### 11. Deactivate Employee (PATCH)
+```bash
+curl -X PATCH https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/1/deactivate
+```
+
+### 12. Delete Employee (DELETE)
+```bash
+curl -X DELETE https://f9c99ad6-6bc7-4b9d-b55c-962d4112a263-00-34d8grlmv2wyz.janeway.replit.dev/api/employees/6
+```
+
+---
+
 ## Tech Stack
 
 - **Java 17** — Core language
@@ -51,6 +167,11 @@ src/main/java/com/deloitte/employee_management/
 └── config/
     ├── CorsConfig.java                  ← CORS configuration
     └── DataInitializer.java             ← Sample data loader
+
+src/test/java/com/deloitte/employee_management/
+├── EmployeeManagementApplicationTests.java  ← Context load test
+└── controller/
+    └── EmployeeControllerTest.java          ← 40 integration tests
 ```
 
 ---
@@ -70,6 +191,11 @@ src/main/java/com/deloitte/employee_management/
 1. Open the project in Replit
 2. Click the **Run** button
 3. The server starts automatically on port 8080
+
+### Run Tests
+```bash
+./mvnw test
+```
 
 ---
 
@@ -111,8 +237,35 @@ src/main/java/com/deloitte/employee_management/
 ## Sample JSON
 
 ### Create Employee (POST /api/employees)
+```json
+{
+  "name": "Test User",
+  "email": "test.user@deloitte.com",
+  "department": "IT",
+  "designation": "Junior",
+  "salary": 60000,
+  "joiningDate": "2026-03-10",
+  "isActive": true
+}
+```
 
-
+### Success Response (201)
+```json
+{
+  "status": "success",
+  "message": "Employee created successfully",
+  "data": {
+    "id": 7,
+    "name": "Test User",
+    "email": "test.user@deloitte.com",
+    "department": "IT",
+    "designation": "Junior",
+    "salary": 60000.0,
+    "joiningDate": "2026-03-10",
+    "isActive": true
+  }
+}
+```
 
 ### Validation Error Response (400)
 ```json
@@ -136,6 +289,15 @@ src/main/java/com/deloitte/employee_management/
 }
 ```
 
+### Duplicate Email Response (409)
+```json
+{
+  "status": "error",
+  "message": "Employee with email 'rahul.sharma@deloitte.com' already exists",
+  "data": null
+}
+```
+
 ---
 
 ## Allowed Values
@@ -146,6 +308,27 @@ src/main/java/com/deloitte/employee_management/
 | designation | Junior, Senior, Manager         |
 | salary      | Must be greater than 0          |
 | joiningDate | Format: YYYY-MM-DD              |
+
+---
+
+## Test Coverage
+
+The project includes **40 integration tests** covering all endpoints:
+
+| Endpoint | Tests | Scenarios |
+|----------|-------|-----------|
+| GET /api/employees | 4 | Pagination, sorting, default params |
+| GET /api/employees/{id} | 3 | Valid ID, not found, invalid ID type |
+| GET /api/employees/department/{dept} | 4 | IT, HR, Finance, non-existing dept |
+| GET /api/employees/active | 2 | All active, after deactivation |
+| GET /api/employees/search | 4 | Exact, case-insensitive, partial, no match |
+| GET /api/employees/count | 2 | Initial count, after changes |
+| GET /api/employees/salary-stats | 2 | All departments, correct fields |
+| POST /api/employees | 9 | Valid, duplicate email, missing fields, invalid values |
+| POST /api/employees/bulk | 1 | Bulk creation |
+| PUT /api/employees/{id} | 4 | Valid update, not found, duplicate email, same email |
+| PATCH /api/employees/{id}/deactivate | 2 | Success, not found |
+| DELETE /api/employees/{id} | 3 | Success, not found, verify deleted |
 
 ---
 
@@ -161,4 +344,18 @@ src/main/java/com/deloitte/employee_management/
 - Bulk employee creation
 - CORS enabled for cross-origin requests
 - Sample data auto-loaded on startup (6 employees)
-- H2 Console for database inspection
+- H2 Console for database inspection (`/h2-console`)
+- 40 integration tests with full endpoint coverage
+
+---
+
+## Pre-loaded Sample Data
+
+| ID | Name          | Department | Designation | Salary  |
+|----|---------------|------------|-------------|---------|
+| 1  | Rahul Sharma  | IT         | Senior      | 85,000  |
+| 2  | Priya Patel   | HR         | Manager     | 95,000  |
+| 3  | Amit Kumar    | Finance    | Junior      | 45,000  |
+| 4  | Sneha Reddy   | Sales      | Senior      | 72,000  |
+| 5  | Vikram Singh  | IT         | Manager     | 110,000 |
+| 6  | Neha Gupta    | HR         | Junior      | 42,000  |
