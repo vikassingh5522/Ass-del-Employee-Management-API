@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" width="80" alt="Java Logo">
+</p>
+
 # Employee Management REST API
 
 A production-ready RESTful API built with Spring Boot for managing employee records. Developed as part of the Deloitte Graduate Hiring Assessment.
