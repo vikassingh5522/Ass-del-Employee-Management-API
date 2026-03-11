@@ -23,7 +23,6 @@ A production-ready RESTful API built with Spring Boot for managing employee reco
 
 | Link | URL |
 |------|-----|
-| **Replit Project** | https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev |
 | **Deployment** | https://ass-del-employee-management-api--VikasSingh97.replit.app |
 | **GitHub** | https://github.com/vikassingh5522/Ass-del-Employee-Management-API.git |
 
