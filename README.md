@@ -15,9 +15,15 @@ A production-ready RESTful API built with Spring Boot for managing employee reco
 
 ---
 
-## Live Demo
+## Project Links
 
-**Base URL:** `https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev`
+| Link | URL |
+|------|-----|
+| **Replit Project** | https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev |
+| **Deployment** | https://ass-del-employee-management-api--VikasSingh97.replit.app |
+| **GitHub** | https://github.com/vikassingh5522/Ass-del-Employee-Management-API.git |
+
+**Base URL:** `https://ass-del-employee-management-api--VikasSingh97.replit.app`
 
 ---
 
@@ -27,45 +33,45 @@ A production-ready RESTful API built with Spring Boot for managing employee reco
 
 ### 1. Get All Employees (Paginated)
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees?page=0&size=10&sortBy=id&sortDir=asc
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees?page=0&size=10&sortBy=id&sortDir=asc
 ```
 
 ### 2. Get Employee by ID
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/1
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/1
 ```
 
 ### 3. Get Employees by Department
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/department/IT
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/department/HR
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/department/Finance
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/department/Sales
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/department/IT
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/department/HR
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/department/Finance
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/department/Sales
 ```
 
 ### 4. Get Active Employees
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/active
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/active
 ```
 
 ### 5. Search Employees by Name
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/search?name=Rahul
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/search?name=Rahul
 ```
 
 ### 6. Get Employee Count
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/count
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/count
 ```
 
 ### 7. Get Salary Statistics by Department
 ```
-GET https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/salary-stats
+GET https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/salary-stats
 ```
 
 ### 8. Create New Employee (POST)
 ```bash
-curl -X POST https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees \
+curl -X POST https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Test User",
@@ -80,7 +86,7 @@ curl -X POST https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.r
 
 ### 9. Bulk Create Employees (POST)
 ```bash
-curl -X POST https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/bulk \
+curl -X POST https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/bulk \
   -H "Content-Type: application/json" \
   -d '[
     {
@@ -106,7 +112,7 @@ curl -X POST https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.r
 
 ### 10. Update Employee (PUT)
 ```bash
-curl -X PUT https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/1 \
+curl -X PUT https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/1 \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Rahul Sharma Updated",
@@ -121,12 +127,12 @@ curl -X PUT https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.re
 
 ### 11. Deactivate Employee (PATCH)
 ```bash
-curl -X PATCH https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/1/deactivate
+curl -X PATCH https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/1/deactivate
 ```
 
 ### 12. Delete Employee (DELETE)
 ```bash
-curl -X DELETE https://b93a8384-a44c-4f90-86fd-7347511dc7db-00-n8dmnxli2s84.kirk.replit.dev/api/employees/6
+curl -X DELETE https://ass-del-employee-management-api--VikasSingh97.replit.app/api/employees/6
 ```
 
 ---
@@ -372,6 +378,7 @@ The project includes **40 integration tests** covering all endpoints:
 | Email        | vikas.kumar.singh.job123@gmail.com |
 | College      | D. Y. Patil College of Engineering and Innovation, Varale, Talegaon, Pune |
 | GitHub       | [vikassingh5522](https://github.com/vikassingh5522) |
+| Repository   | [Ass-del-Employee-Management-API](https://github.com/vikassingh5522/Ass-del-Employee-Management-API) |
 
 ---
 
